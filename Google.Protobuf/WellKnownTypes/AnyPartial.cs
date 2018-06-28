@@ -83,8 +83,7 @@ namespace Google.Protobuf.WellKnownTypes
             T target = new T();
             if (GetTypeName(TypeUrl) != target.Descriptor.FullName)
             {
-                throw new InvalidProtocolBufferException(
-                    $"Full type name for {target.Descriptor.Name} is {target.Descriptor.FullName}; Any message's type url is {TypeUrl}");
+                throw new InvalidProtocolBufferException("Full type name for " + target.Descriptor.Name + " is " + target.Descriptor.FullName + "; Any message's type url is " + TypeUrl);
             }
             target.MergeFrom(Value);
             return target;
